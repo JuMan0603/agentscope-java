@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta property="article:modified_time" content="2026-06-02T16:19:40+00:00" /><link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="Permission System" href="permission-system.html"><link rel="prev" title="Middleware" href="middleware.html">
+    <meta property="article:modified_time" content="2026-07-01T12:23:50+00:00" /><link rel="index" title="Index" href="../../../../genindex.html"><link rel="search" title="Search" href="../../../../search.html"><link rel="next" title="Permission System" href="permission-system.html"><link rel="prev" title="Middleware" href="middleware.html">
         <link rel="canonical" href="https://java.agentscope.io/v2/en/docs/building-blocks/model.html">
         <link rel="prefetch" href="../../../../_static/logo.svg" as="image">
 
@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/styles/furo-extensions.css?v=8dab3a3b" />
-    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=832171e9" />
+    <link rel="stylesheet" type="text/css" href="../../../../_static/custom.css?v=6f24c6f4" />
     <link rel="stylesheet" type="text/css" href="../../../../_static/homepage.css?v=16a56cbd" />
     
     
@@ -672,7 +672,6 @@
 <p class="caption" role="heading"><span class="caption-text">v2 · Quick Start</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">What's AgentScope 2.0?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../change-log.html">Change Log</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quickstart.html">Quickstart</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · Building Blocks</span></p>
@@ -683,11 +682,12 @@
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="permission-system.html">Permission System</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tool.html">Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="context.html">Context &amp; AgentState</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · Harness (English)</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../harness/architecture.html">Architecture</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../harness/context.html">Context</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/compaction.html">Compaction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../harness/workspace.html">Workspace</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../harness/memory.html">Memory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../harness/filesystem.html">Filesystem</a></li>
@@ -695,9 +695,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../harness/subagent.html">Subagent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../harness/skill.html">Skill</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../harness/plan-mode.html">Plan Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harness/channel.html">Channel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · Reference</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../change-log.html">Migration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../others/release-notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../others/going-to-production.html">Going to Production</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../others/faq.html">FAQ</a></li>
 </ul>
@@ -705,17 +708,21 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../integration/overview.html">Overview</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/memory/index.html">Memory</a><input aria-label="Toggle navigation of Memory" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/memory/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/memory/mem0.html">Mem0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/memory/bailian.html">Bailian Memory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/memory/reme.html">ReMe</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/session/index.html">Session</a><input aria-label="Toggle navigation of Session" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../integration/session/mysql.html">MySQL Session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../integration/session/redis.html">Redis Session</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/session/index.html">Agent State Store</a><input aria-label="Toggle navigation of Agent State Store" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/session/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/session/mysql.html">MySQL State Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/session/redis.html">Redis State Store</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/session/oss.html">OSS State Store</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/rag/index.html">RAG Knowledge Base</a><input aria-label="Toggle navigation of RAG Knowledge Base" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/rag/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/rag/simple.html">Simple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/rag/bailian.html">Bailian Knowledge</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/rag/dify.html">Dify</a></li>
@@ -724,26 +731,29 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/skill/index.html">Skill Repository</a><input aria-label="Toggle navigation of Skill Repository" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/skill/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/skill/git-repository.html">Git Skill Repository</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/skill/mysql-repository.html">MySQL Skill Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/skill/postgresql-repository.html">PostgreSQL Skill Repository</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/protocol/index.html">Agent Protocols</a><input aria-label="Toggle navigation of Agent Protocols" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/protocol/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/protocol/a2a.html">A2A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/protocol/agui.html">AG-UI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/protocol/agent-protocol.html">Agent Protocol</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/infrastructure/index.html">Infrastructure</a><input aria-label="Toggle navigation of Infrastructure" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/infrastructure/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/infrastructure/higress.html">Higress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/infrastructure/nacos.html">Nacos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../integration/infrastructure/rocketmq.html">RocketMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/infrastructure/scheduler.html">Scheduler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../integration/ecosystem/index.html">Ecosystem</a><input aria-label="Toggle navigation of Ecosystem" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../integration/ecosystem/overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/ecosystem/chat-completions-web.html">Chat Completions Web</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../integration/ecosystem/kotlin.html">Kotlin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/ecosystem/studio.html">Studio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../integration/ecosystem/training.html">Online Training</a></li>
 </ul>
@@ -760,7 +770,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · 快速开始</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/change-log.html">更新日志</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/index.html">什么是 AgentScope 2.0？</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/quickstart.html">快速上手</a></li>
 </ul>
@@ -772,11 +781,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/building-blocks/model.html">模型</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/building-blocks/permission-system.html">权限系统</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/building-blocks/tool.html">工具</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/building-blocks/context.html">上下文与 AgentState</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · Harness</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/architecture.html">架构</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/context.html">上下文</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/compaction.html">上下文压缩</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/workspace.html">工作区</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/memory.html">记忆</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/filesystem.html">文件系统</a></li>
@@ -784,9 +794,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/subagent.html">子 Agent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/skill.html">技能</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/plan-mode.html">计划模式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/harness/channel.html">Channel</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">v2 · 参考</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/change-log.html">迁移指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/others/release-notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/others/going-to-production.html">上生产</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/docs/others/faq.html">常见问题</a></li>
 </ul>
@@ -794,17 +807,21 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../zh/integration/overview.html">概览</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/memory/index.html">记忆</a><input aria-label="Toggle navigation of 记忆" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" role="switch" type="checkbox"/><label for="toctree-checkbox-8"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/memory/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/memory/mem0.html">Mem0</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/memory/bailian.html">百炼记忆</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/memory/reme.html">ReMe</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/session/index.html">会话</a><input aria-label="Toggle navigation of 会话" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/mysql.html">MySQL Session</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/redis.html">Redis Session</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/session/index.html">Agent 状态存储</a><input aria-label="Toggle navigation of Agent 状态存储" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" role="switch" type="checkbox"/><label for="toctree-checkbox-9"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/overview.html">概览</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/mysql.html">MySQL 状态存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/redis.html">Redis 状态存储</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/session/oss.html">OSS 状态存储</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/rag/index.html">RAG 知识库</a><input aria-label="Toggle navigation of RAG 知识库" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" role="switch" type="checkbox"/><label for="toctree-checkbox-10"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/rag/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/rag/simple.html">Simple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/rag/bailian.html">百炼知识库</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/rag/dify.html">Dify</a></li>
@@ -813,26 +830,29 @@
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/skill/index.html">技能仓库</a><input aria-label="Toggle navigation of 技能仓库" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" role="switch" type="checkbox"/><label for="toctree-checkbox-11"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/skill/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/skill/git-repository.html">Git 技能仓库</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/skill/mysql-repository.html">MySQL 技能仓库</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/skill/postgresql-repository.html">PostgreSQL 技能仓库</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/protocol/index.html">智能体协议</a><input aria-label="Toggle navigation of 智能体协议" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" role="switch" type="checkbox"/><label for="toctree-checkbox-12"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/protocol/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/protocol/a2a.html">A2A</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/protocol/agui.html">AG-UI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/protocol/agent-protocol.html">Agent Protocol</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/infrastructure/index.html">基础设施</a><input aria-label="Toggle navigation of 基础设施" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" role="switch" type="checkbox"/><label for="toctree-checkbox-13"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/infrastructure/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/infrastructure/higress.html">Higress</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/infrastructure/nacos.html">Nacos</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/infrastructure/rocketmq.html">RocketMQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/infrastructure/scheduler.html">Scheduler</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../../zh/integration/ecosystem/index.html">生态扩展</a><input aria-label="Toggle navigation of 生态扩展" class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" role="switch" type="checkbox"/><label for="toctree-checkbox-14"><span class="icon"><svg><use href="#svg-arrow-right"></use></svg></span></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/ecosystem/overview.html">概览</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/ecosystem/chat-completions-web.html">Chat Completions Web</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/ecosystem/kotlin.html">Kotlin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/ecosystem/studio.html">Studio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../zh/integration/ecosystem/training.html">在线训练</a></li>
 </ul>
@@ -887,7 +907,7 @@
 <h1>Model<a class="headerlink" href="#model" title="Link to this heading">¶</a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
-<p>The model layer is two-tiered: at the top sit <strong>Credentials</strong> (<code class="docutils literal notranslate"><span class="pre">io.agentscope.core.credential</span></code>), which carry a provider’s API auth fields; below them sit <strong>Chat Models</strong> (<code class="docutils literal notranslate"><span class="pre">io.agentscope.core.model</span></code>), the concrete inference implementations attached to a credential.</p>
+<p>The model layer is two-tiered: at the top sit <strong>Credentials</strong> (<code class="docutils literal notranslate"><span class="pre">io.agentscope.core.credential</span></code>), which carry a provider’s API auth fields; below them sit <strong>Chat Models</strong>, the concrete inference implementations attached to a credential.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CredentialBase/
 └── ChatModelBase/
     ├── OpenAIChatModel
@@ -899,6 +919,104 @@
 </div>
 <p>A <strong>Credential</strong> carries a provider’s API auth fields (<code class="docutils literal notranslate"><span class="pre">apiKey</span></code>, <code class="docutils literal notranslate"><span class="pre">baseUrl</span></code>, …). Starting from a credential, you can call <code class="docutils literal notranslate"><span class="pre">listModels()</span></code> to enumerate the models available under that provider (returns <code class="docutils literal notranslate"><span class="pre">Mono&lt;List&lt;ModelCard&gt;&gt;</span></code>).</p>
 <p>This layering matches the natural UX in a frontend — register the credential first, then pick a model under it — so the UI authenticates once and shows everything that provider supports.</p>
+</section>
+<section id="provider-module-migration">
+<h2>Provider module migration<a class="headerlink" href="#provider-module-migration" title="Link to this heading">¶</a></h2>
+<p>Provider-specific model implementations have been moved out of <code class="docutils literal notranslate"><span class="pre">agentscope-core</span></code> into independent extension modules. The core module now keeps the shared model contracts and runtime utilities, while each provider module owns its chat model, credential, formatter, DTO, exception, and SDK/API client code.</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Provider</p></th>
+<th class="head"><p>Maven artifact</p></th>
+<th class="head"><p>Main package</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OpenAI</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-openai</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.openai</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>DashScope</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-dashscope</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.dashscope</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Gemini</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-gemini</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.gemini</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Anthropic</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-anthropic</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.anthropic</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Ollama</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-ollama</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.ollama</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="migration-checklist">
+<h3>Migration checklist<a class="headerlink" href="#migration-checklist" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Add the provider extension module dependency. For example, DashScope:</p></li>
+</ol>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-extensions-model-dashscope<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+<p>Other provider artifacts follow the same pattern: <code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-openai</span></code>, <code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-gemini</span></code>, <code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-anthropic</span></code>, and <code class="docutils literal notranslate"><span class="pre">agentscope-extensions-model-ollama</span></code>.</p>
+<ol class="arabic simple" start="2">
+<li><p>Replace provider imports from <code class="docutils literal notranslate"><span class="pre">io.agentscope.core.model.*</span></code> with <code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.&lt;provider&gt;.*</span></code>.</p></li>
+<li><p>Replace provider formatter imports from <code class="docutils literal notranslate"><span class="pre">io.agentscope.core.formatter.&lt;provider&gt;.*</span></code> with <code class="docutils literal notranslate"><span class="pre">io.agentscope.extensions.model.&lt;provider&gt;.formatter.*</span></code>.</p></li>
+<li><p>For Spring Boot applications, replace the generic model creation path with the matching provider-specific starter and its <code class="docutils literal notranslate"><span class="pre">agentscope.&lt;provider&gt;.*</span></code> properties.</p></li>
+</ol>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;dependency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;groupId&gt;</span>io.agentscope<span class="nt">&lt;/groupId&gt;</span>
+<span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>agentscope-openai-spring-boot-starter<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="non-spring-applications">
+<h3>Non-Spring applications<a class="headerlink" href="#non-spring-applications" title="Link to this heading">¶</a></h3>
+<p>When using provider classes directly, add the corresponding extension dependency and update imports. For example:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeChatFormatter</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Then create the model with the provider builder and pass the <code class="docutils literal notranslate"><span class="pre">Model</span></code> instance to the agent:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">DashScopeChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">apiKey</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;DASHSCOPE_API_KEY&quot;</span><span class="p">))</span>
+<span class="w">                </span><span class="p">.</span><span class="na">modelName</span><span class="p">(</span><span class="s">&quot;qwen-plus&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">stream</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">formatter</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">DashScopeChatFormatter</span><span class="p">())</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+
+<span class="n">ReActAgent</span><span class="w"> </span><span class="n">agent</span><span class="w"> </span><span class="o">=</span>
+<span class="w">        </span><span class="n">ReActAgent</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">                </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;assistant&quot;</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">model</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="spring-boot-applications">
+<h3>Spring Boot applications<a class="headerlink" href="#spring-boot-applications" title="Link to this heading">¶</a></h3>
+<p>For Spring Boot, prefer provider-specific starters such as <code class="docutils literal notranslate"><span class="pre">agentscope-openai-spring-boot-starter</span></code>, <code class="docutils literal notranslate"><span class="pre">agentscope-dashscope-spring-boot-starter</span></code>, <code class="docutils literal notranslate"><span class="pre">agentscope-gemini-spring-boot-starter</span></code>, and <code class="docutils literal notranslate"><span class="pre">agentscope-anthropic-spring-boot-starter</span></code>. These starters directly depend on the matching model extension, create Spring-managed <code class="docutils literal notranslate"><span class="pre">Model</span></code> beans, and leave the generic starter focused on common AgentScope infrastructure.</p>
+<p>OpenAI example:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">agentscope</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">model</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+<span class="w">  </span><span class="nt">openai</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">api-key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${OPENAI_API_KEY}</span>
+<span class="w">    </span><span class="nt">model-name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4.1-mini</span>
+<span class="w">    </span><span class="nt">stream</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
 </section>
 <section id="chat-model">
 <h2>Chat model<a class="headerlink" href="#chat-model" title="Link to this heading">¶</a></h2>
@@ -935,7 +1053,7 @@
 </tbody>
 </table>
 </div>
-<p>Credential classes (<code class="docutils literal notranslate"><span class="pre">io.agentscope.core.credential</span></code>): <code class="docutils literal notranslate"><span class="pre">OpenAICredential</span></code>, <code class="docutils literal notranslate"><span class="pre">AnthropicCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">DashScopeCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">GeminiCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">OllamaCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">DeepSeekCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">KimiCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">XAICredential</span></code>.</p>
+<p>Credential classes: <code class="docutils literal notranslate"><span class="pre">OpenAICredential</span></code>, <code class="docutils literal notranslate"><span class="pre">AnthropicCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">DashScopeCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">GeminiCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">OllamaCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">DeepSeekCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">KimiCredential</span></code>, <code class="docutils literal notranslate"><span class="pre">XAICredential</span></code>.</p>
 <section id="creating-a-chat-model">
 <h3>Creating a chat model<a class="headerlink" href="#creating-a-chat-model" title="Link to this heading">¶</a></h3>
 <p>Each chat model is built with a builder. The most common fields are <code class="docutils literal notranslate"><span class="pre">apiKey</span></code>, <code class="docutils literal notranslate"><span class="pre">modelName</span></code>, <code class="docutils literal notranslate"><span class="pre">stream</span></code>, <code class="docutils literal notranslate"><span class="pre">formatter</span></code>, <code class="docutils literal notranslate"><span class="pre">defaultOptions</span></code>. Three typical setups:</p>
@@ -943,8 +1061,8 @@
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-0">
 Streaming</label><div class="sd-tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.formatter.dashscope.DashScopeChatFormatter</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.DashScopeChatModel</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeChatFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
 
 <span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="n">DashScopeChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -959,8 +1077,8 @@ Streaming</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
 Tools</label><div class="sd-tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.formatter.dashscope.DashScopeChatFormatter</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.DashScopeChatModel</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeChatFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.GenerateOptions</span><span class="p">;</span>
 
 <span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
@@ -980,8 +1098,8 @@ Tools</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-2">
 Reasoning</label><div class="sd-tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.formatter.dashscope.DashScopeChatFormatter</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.DashScopeChatModel</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeChatFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.GenerateOptions</span><span class="p">;</span>
 
 <span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
@@ -1043,9 +1161,9 @@ Reasoning</label><div class="sd-tab-content docutils">
 <p>The <code class="docutils literal notranslate"><span class="pre">Model</span></code> interface exposes a unified <code class="docutils literal notranslate"><span class="pre">stream(messages,</span> <span class="pre">tools,</span> <span class="pre">options)</span></code> returning <code class="docutils literal notranslate"><span class="pre">Flux&lt;ChatResponse&gt;</span></code>:</p>
 <div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.message.UserMessage</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.ChatResponse</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.DashScopeChatModel</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.GenerateOptions</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.formatter.dashscope.DashScopeChatFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeChatFormatter</span><span class="p">;</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">java.util.List</span><span class="p">;</span>
 
 <span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
@@ -1060,18 +1178,12 @@ Reasoning</label><div class="sd-tab-content docutils">
 <span class="w">                </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">UserMessage</span><span class="p">(</span><span class="s">&quot;Count from 1 to 5.&quot;</span><span class="p">)),</span>
 <span class="w">                </span><span class="cm">/* tools = */</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(),</span>
 <span class="w">                </span><span class="n">GenerateOptions</span><span class="p">.</span><span class="na">builder</span><span class="p">().</span><span class="na">build</span><span class="p">())</span>
-<span class="w">        </span><span class="p">.</span><span class="na">doOnNext</span><span class="p">(</span><span class="n">chunk</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="c1">// chunk.isLast() == true marks the final accumulated content</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">chunk</span><span class="p">.</span><span class="na">isLast</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Final: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chunk</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
-<span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Delta: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chunk</span><span class="p">.</span><span class="na">getContent</span><span class="p">());</span>
-<span class="w">            </span><span class="p">}</span>
-<span class="w">        </span><span class="p">})</span>
+<span class="w">        </span><span class="p">.</span><span class="na">doOnNext</span><span class="p">(</span><span class="n">chunk</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Chunk: &quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">chunk</span><span class="p">.</span><span class="na">getContent</span><span class="p">()))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">doOnComplete</span><span class="p">(()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Stream completed&quot;</span><span class="p">))</span>
 <span class="w">        </span><span class="p">.</span><span class="na">blockLast</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">ChatResponse</span></code> carries a list of content blocks (<code class="docutils literal notranslate"><span class="pre">TextBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">ThinkingBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">ToolUseBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">DataBlock</span></code>), an <code class="docutils literal notranslate"><span class="pre">isLast()</span></code> flag, and a <code class="docutils literal notranslate"><span class="pre">ChatUsage</span></code> recording token counts and timing.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">ChatResponse</span></code> carries a list of content blocks (<code class="docutils literal notranslate"><span class="pre">TextBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">ThinkingBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">ToolUseBlock</span></code>, <code class="docutils literal notranslate"><span class="pre">DataBlock</span></code>) and a <code class="docutils literal notranslate"><span class="pre">ChatUsage</span></code> recording token counts and timing.</p>
 <p>In practice you usually call models indirectly via <code class="docutils literal notranslate"><span class="pre">ReActAgent</span></code>. For lightweight direct invocation, see <code class="docutils literal notranslate"><span class="pre">agentscope-examples/documentation/.../model/ModelRegistryExample.java</span></code>.</p>
 </section>
 <section id="generating-structured-output">
@@ -1100,6 +1212,89 @@ Reasoning</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 <p>How it works: the framework synthesizes a forced structured tool call from the target class, validates and repairs the model output, and writes the result into <code class="docutils literal notranslate"><span class="pre">Msg.metadata</span></code> under the <code class="docutils literal notranslate"><span class="pre">structured_output</span></code> key, so <code class="docutils literal notranslate"><span class="pre">getStructuredData(Class)</span></code> can deserialize it directly. Complete example: <code class="docutils literal notranslate"><span class="pre">agentscope-examples/documentation/.../structuredoutput/StructuredOutputExample.java</span></code>.</p>
+<section id="structured-output-path-selection">
+<h4>Structured output path selection<a class="headerlink" href="#structured-output-path-selection" title="Link to this heading">¶</a></h4>
+<p>The framework provides two structured output paths:</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Path</p></th>
+<th class="head"><p>Condition</p></th>
+<th class="head"><p>Mechanism</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Native</strong></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">supportsNativeStructuredOutput()</span> <span class="pre">=</span> <span class="pre">true</span></code></p></td>
+<td><p>Uses <code class="docutils literal notranslate"><span class="pre">response_format</span></code> + <code class="docutils literal notranslate"><span class="pre">json_schema</span></code> for direct JSON output</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Fallback</strong> (default)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">supportsNativeStructuredOutput()</span> <span class="pre">=</span> <span class="pre">false</span></code></p></td>
+<td><p>Injects a <code class="docutils literal notranslate"><span class="pre">generate_response</span></code> synthetic tool; model returns structured data via tool call</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If the native path fails (e.g. model returns HTTP 400), the framework <strong>automatically falls back</strong> to the synthetic tool path — no user intervention needed.</p>
+</section>
+<section id="default-behavior-per-provider">
+<h4>Default behavior per provider<a class="headerlink" href="#default-behavior-per-provider" title="Link to this heading">¶</a></h4>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Provider</p></th>
+<th class="head"><p><code class="docutils literal notranslate"><span class="pre">supportsNativeStructuredOutput</span></code></p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OpenAI (GPT-4o, etc.)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p>Native <code class="docutils literal notranslate"><span class="pre">json_schema</span></code> support</p></td>
+</tr>
+<tr class="row-odd"><td><p>OpenAI (DeepSeek/GLM formatter)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Not supported; auto-fallback</p></td>
+</tr>
+<tr class="row-even"><td><p>DashScope</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>Native endpoint only supports <code class="docutils literal notranslate"><span class="pre">json_object</span></code>, not <code class="docutils literal notranslate"><span class="pre">json_schema</span></code>; fallback by default</p></td>
+</tr>
+<tr class="row-odd"><td><p>Anthropic</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code> (default)</p></td>
+<td><p>—</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<div><p><strong>DashScope users</strong>: Thinking mode (<code class="docutils literal notranslate"><span class="pre">enableThinking(true)</span></code>) does not support structured output at all — the framework forces the fallback path.</p>
+</div></blockquote>
+</section>
+<section id="explicit-configuration">
+<h4>Explicit configuration<a class="headerlink" href="#explicit-configuration" title="Link to this heading">¶</a></h4>
+<p>If you confirm your model/endpoint supports <code class="docutils literal notranslate"><span class="pre">json_schema</span></code>, enable the native path via builder:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">DashScopeChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="na">apiKey</span><span class="p">(</span><span class="n">System</span><span class="p">.</span><span class="na">getenv</span><span class="p">(</span><span class="s">&quot;DASHSCOPE_API_KEY&quot;</span><span class="p">))</span>
+<span class="w">        </span><span class="p">.</span><span class="na">modelName</span><span class="p">(</span><span class="s">&quot;qwen-plus&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">nativeStructuredOutput</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w">  </span><span class="c1">// explicitly enable native json_schema path</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="structured-output-with-tool-calling">
+<h4>Structured output with tool calling<a class="headerlink" href="#structured-output-with-tool-calling" title="Link to this heading">¶</a></h4>
+<p>When an agent has both tools and structured output, some OpenAI-compatible providers (e.g. Kimi, Deepseek) prioritise the <code class="docutils literal notranslate"><span class="pre">response_format</span></code> constraint and skip tool calling entirely. Set <code class="docutils literal notranslate"><span class="pre">nativeStructuredOutputWithTools(false)</span></code> to resolve this:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">OpenAIChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OpenAIChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
+<span class="w">        </span><span class="p">.</span><span class="na">apiKey</span><span class="p">(</span><span class="s">&quot;...&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">baseUrl</span><span class="p">(</span><span class="s">&quot;https://api.moonshot.cn/v1&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">modelName</span><span class="p">(</span><span class="s">&quot;moonshot-v1-8k&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">nativeStructuredOutputWithTools</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+<span class="w">        </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">DashScopeChatModel</span></code> supports this option as well. For native OpenAI models (GPT-4o, etc.) the default behavior handles both correctly — no configuration needed.</p>
+</section>
 </section>
 <section id="formatter">
 <h3>Formatter<a class="headerlink" href="#formatter" title="Link to this heading">¶</a></h3>
@@ -1122,8 +1317,8 @@ Reasoning</label><div class="sd-tab-content docutils">
 </table>
 </div>
 <p>To switch to multi-agent mode, just pass the MultiAgent variant — no agent code changes:</p>
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.formatter.dashscope.DashScopeMultiAgentFormatter</span><span class="p">;</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.core.model.DashScopeChatModel</span><span class="p">;</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.formatter.DashScopeMultiAgentFormatter</span><span class="p">;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io.agentscope.extensions.model.dashscope.DashScopeChatModel</span><span class="p">;</span>
 
 <span class="n">DashScopeChatModel</span><span class="w"> </span><span class="n">model</span><span class="w"> </span><span class="o">=</span>
 <span class="w">        </span><span class="n">DashScopeChatModel</span><span class="p">.</span><span class="na">builder</span><span class="p">()</span>
@@ -1134,7 +1329,7 @@ Reasoning</label><div class="sd-tab-content docutils">
 <span class="w">                </span><span class="p">.</span><span class="na">build</span><span class="p">();</span>
 </pre></div>
 </div>
-<p>Per-provider formatters (under <code class="docutils literal notranslate"><span class="pre">io.agentscope.core.formatter</span></code>):</p>
+<p>Per-provider formatters now live with their provider extension modules:</p>
 <div class="table-wrapper colwidths-auto docutils container">
 <table class="docutils align-default">
 <thead>
@@ -1367,7 +1562,7 @@ Reasoning</label><div class="sd-tab-content docutils">
             Made with 
             <a href="https://github.com/pradyunsg/furo">Furo</a>
             <div class="last-updated">
-              Last updated on 2026-06-02</div>
+              Last updated on 2026-07-01</div>
           </div>
           <div class="right-details">
             <div class="icons">
@@ -1404,10 +1599,22 @@ Reasoning</label><div class="sd-tab-content docutils">
             <ul>
 <li><a class="reference internal" href="#">Model</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#provider-module-migration">Provider module migration</a><ul>
+<li><a class="reference internal" href="#migration-checklist">Migration checklist</a></li>
+<li><a class="reference internal" href="#non-spring-applications">Non-Spring applications</a></li>
+<li><a class="reference internal" href="#spring-boot-applications">Spring Boot applications</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#chat-model">Chat model</a><ul>
 <li><a class="reference internal" href="#creating-a-chat-model">Creating a chat model</a></li>
 <li><a class="reference internal" href="#calling-a-chat-model">Calling a chat model</a></li>
-<li><a class="reference internal" href="#generating-structured-output">Generating structured output</a></li>
+<li><a class="reference internal" href="#generating-structured-output">Generating structured output</a><ul>
+<li><a class="reference internal" href="#structured-output-path-selection">Structured output path selection</a></li>
+<li><a class="reference internal" href="#default-behavior-per-provider">Default behavior per provider</a></li>
+<li><a class="reference internal" href="#explicit-configuration">Explicit configuration</a></li>
+<li><a class="reference internal" href="#structured-output-with-tool-calling">Structured output with tool calling</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#formatter">Formatter</a></li>
 <li><a class="reference internal" href="#custom-provider">Custom provider</a><ul>
 <li><a class="reference internal" href="#step-1-define-the-credential">Step 1: Define the credential</a></li>
@@ -1456,5 +1663,6 @@ Reasoning</label><div class="sd-tab-content docutils">
     <script src="../../../../_static/notice-bar.js?v=6a544133"></script>
     <script src="../../../../_static/mermaid-zoom.js?v=b287901b"></script>
     <script src="../../../../_static/version.js?v=b09c2e6c"></script>
+    <script src="../../../../_static/ai-context-menu.js?v=0f9728a6"></script>
     </body>
 </html>
